@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+option go_package = "https://github.com/vineet070193/go-service1/protos/chat";
+
 service Chat{
     rpc Greet(GreetRequest) returns (GreetResponse);
 }
