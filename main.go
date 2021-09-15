@@ -12,6 +12,7 @@ import (
 
 	// protos "github.com/vineet070193/go-service1/tree/main/protos/chat"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 func main() {
@@ -20,6 +21,9 @@ func main() {
 	cs := server.NewChat(log)
 
 	protos.RegisterChatServer(gs, cs)
+
+	// Disable this flag in production as it is used to test the service using grpcurl locally.
+	reflection.Register(gs)
 
 	lis, err := net.Listen("tcp", ":9092")
 	if err != nil {
