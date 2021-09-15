@@ -4,10 +4,10 @@ import (
 	"net"
 	"os"
 
-	"github.com/vineet070193/go-service1/server"
+	"github.com/vineet070193/go-service1/protos/chat/github.com/vineet070193/go-service1/server"
 
 	"github.com/hashicorp/go-hclog"
-	protos "github.com/vineet070193/go-service1/protos/chat"
+	protos "github.com/vineet070193/go-service1/protos/chat/github.com/vineet070193/go-service1/protos/chat"
 	"google.golang.org/grpc"
 )
 
