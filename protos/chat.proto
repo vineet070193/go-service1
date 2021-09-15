@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service Chat{
+    rpc Greet(GreetRequest) returns (GreetResponse);
+}
+
+message GreetRequest {
+    string FirstName = 1;
+    string LastName = 2;
+}
+
+message GreetResponse {
+    string Greeting = 1;
+}
