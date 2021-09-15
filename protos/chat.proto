@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "github.com/vineet070193/go-service1/chat";
+
+service Chat{
+    rpc Greet(GreetRequest) returns (GreetResponse);
+}
+
+message GreetRequest {
+    string FirstName = 1;
+    string LastName = 2;
+}
+
+message GreetResponse {
+    string Name = 1;
+    string Greeting = 2;
+} 
