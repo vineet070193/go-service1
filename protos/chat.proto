@@ -10,5 +10,6 @@ message GreetRequest {
 }
 
 message GreetResponse {
-    string Greeting = 1;
+    string Name = 1;
+    string Greeting = 2;
 }
