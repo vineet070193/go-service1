@@ -16,11 +16,11 @@ func NewChat(l hclog.Logger) *Chat {
 	return &Chat{l}
 }
 
-func (c *Chat) Greeting(ctx context.Context, r *protos.GreetRequest) (*protos.GreetREsponse, error) {
-	c.log.Info("Hadle Greeting", "first_name", r.FirstName(), "last_name", r.LastName())
+func (c *Chat) Greet(ctx context.Context, r *protos.GreetRequest) (*protos.GreetResponse, error) {
+	c.log.Info("Hadle Greeting", "first_name", r.FirstName, "last_name", r.LastName)
 
 	return &protos.GreetResponse{
 		Greeting: "Hello there",
-		Name:     r.FirstName(),
+		Name:     r.FirstName,
 	}, nil
 }
