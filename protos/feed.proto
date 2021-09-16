@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option go_package = "feed/";
+
+message Feed {
+    string FeedID = 1;
+    string Snippet = 2;
+    string Timestamp = 3;
+    string Content = 4;
+}
+
+message Error {
+    int32 Code = 1;
+    string Message = 2;
+}
+
+message Status {
+    bool Status = 1;
+    repeated Error error = 2;
+}
+message AddFeedRequest {
+    Feed Feed = 1;
+}
+
+message AddFeedResponse {
+    Status Status = 1;
+    repeated Feed Feeds = 2;
+}
+
+message ListFeedRequest {
+    string FeedID = 1;
+}
+
+message ListFeedResponse {
+    repeated Feed FeedList = 1;
+}
+
+service FeedService{
+    rpc AddFeed(AddFeedRequest) returns (AddFeedResponse);
+
+    rpc ListFeed(ListFeedRequest) returns (ListFeedResponse);
+}
