@@ -7,7 +7,8 @@ import (
 	"github.com/vineet070193/go-service1/server"
 
 	hclog "github.com/hashicorp/go-hclog"
-	protos "github.com/vineet070193/go-service1/protos/chat"
+	chatprotos "github.com/vineet070193/go-service1/protos/chat"
+	feedprotos "github.com/vineet070193/go-service1/protos/feed"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
@@ -17,8 +18,10 @@ func main() {
 	log := hclog.Default()
 	gs := grpc.NewServer()
 	cs := server.NewChat(log)
+	fs := server.NewFeedService(log)
 
-	protos.RegisterChatServer(gs, cs)
+	chatprotos.RegisterChatServer(gs, cs)
+	feedprotos.RegisterFeedServiceServer(gs, fs)
 
 	// Disable this flag in production as it is used to test the service using grpcurl locally.
 	// This can be added behind an environment flag for safer testing.

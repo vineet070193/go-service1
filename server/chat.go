@@ -4,7 +4,7 @@ import (
 	"context"
 
 	hclog "github.com/hashicorp/go-hclog"
-	protos "github.com/vineet070193/go-service1/protos/chat"
+	chatprotos "github.com/vineet070193/go-service1/protos/chat"
 )
 
 type Chat struct {
@@ -15,10 +15,10 @@ func NewChat(l hclog.Logger) *Chat {
 	return &Chat{l}
 }
 
-func (c *Chat) Greet(ctx context.Context, r *protos.GreetRequest) (*protos.GreetResponse, error) {
+func (c *Chat) Greet(ctx context.Context, r *chatprotos.GreetRequest) (*chatprotos.GreetResponse, error) {
 	c.log.Info("Hadle Greeting", "first_name", r.FirstName, "last_name", r.LastName)
 
-	return &protos.GreetResponse{
+	return &chatprotos.GreetResponse{
 		Greeting: "Hello there",
 		Name:     r.FirstName,
 	}, nil

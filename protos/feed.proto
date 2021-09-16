@@ -5,8 +5,8 @@ option go_package = "feed/";
 message Feed {
     string FeedID = 1;
     string Snippet = 2;
-    string Timestamp = 3;
-    string Content = 4;
+    string Content = 3;
+    int64 Timestamp = 4;
 }
 
 message Error {
@@ -24,7 +24,6 @@ message AddFeedRequest {
 
 message AddFeedResponse {
     Status Status = 1;
-    repeated Feed Feeds = 2;
 }
 
 message ListFeedRequest {
@@ -33,6 +32,7 @@ message ListFeedRequest {
 
 message ListFeedResponse {
     repeated Feed FeedList = 1;
+    Status Status = 2;
 }
 
 service FeedService{
