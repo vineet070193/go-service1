@@ -53,3 +53,14 @@ $ grpcurl --plaintext -d '{"Feed": {"FeedID": "feed_id", "Snippet": "snippet1", 
   }
 }
 ```
+
+## Error Troubleshooting
+When getting:
+```
+[ERROR] Error creating datastoreClient: : EXTRA_VALUE_AT_END="dialing: google: could not find default credentials. See https://developers.google.com/accounts/docs/application-default-credentials for more information."
+```
+
+Try running the below command to refresh the credentials on cli and use default service account for the project:
+```
+$ gcloud auth application-default login
+```
