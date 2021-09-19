@@ -49,7 +49,7 @@ func NewConn(host string, insecure bool) (*grpc.ClientConn, error) {
 	return grpc.Dial(host, opts...)
 }
 
-func main() {
+func invokeClient() {
 	conn, err := NewConn("fleet-breaker-325818.el.r.appspot.com:8080", true)
 	if err != nil {
 		fmt.Printf("Error creating the client connection: %v\n", err)
